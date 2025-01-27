@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="bmt.AppTest" time="0.035" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="bmt.AppTest" time="0.044" tests="6" errors="5" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\maram\AppData\Local\Temp\surefire9591272685017327203\surefirebooter10505006958914763608.jar C:\Users\maram\AppData\Local\Temp\surefire9591272685017327203 2025-01-27T19-24-19_480-jvmRun1 surefire6782288984631306789tmp surefire_013991243070340981174tmp"/>
+    <property name="sun.java.command" value="C:\Users\maram\AppData\Local\Temp\surefire9300181671636255528\surefirebooter4321961409293770531.jar C:\Users\maram\AppData\Local\Temp\surefire9300181671636255528 2025-01-27T19-33-55_302-jvmRun1 surefire16603048892300028848tmp surefire_017427963662996547023tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\maram\OneDrive\Desktop\java project\Movie Analysis\target\test-classes;C:\Users\maram\OneDrive\Desktop\java project\Movie Analysis\target\classes;C:\Users\maram\.m2\repository\org\xerial\sqlite-jdbc\3.48.0.0\sqlite-jdbc-3.48.0.0.jar;C:\Users\maram\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\maram\.m2\repository\org\jfree\jfreechart\1.0.19\jfreechart-1.0.19.jar;C:\Users\maram\.m2\repository\org\jfree\jcommon\1.0.23\jcommon-1.0.23.jar;C:\Users\maram\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\maram\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\maram\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\maram\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\maram\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\maram\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\maram\AppData\Local\Temp\surefire9591272685017327203\surefirebooter10505006958914763608.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\maram\AppData\Local\Temp\surefire9300181671636255528\surefirebooter4321961409293770531.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.1+11-39"/>
@@ -58,10 +58,45 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testCalculateSpearman" classname="bmt.AppTest" time="0.01"/>
-  <testcase name="testCalculatePearson" classname="bmt.AppTest" time="0"/>
-  <testcase name="testPredictProfit" classname="bmt.AppTest" time="0"/>
+  <testcase name="testCalculateSpearman" classname="bmt.AppTest" time="0.028">
+    <error message="Unresolved compilation problem: &#10;	The method calculateSpearman(List&lt;Double&gt;, List&lt;Double&gt;) is undefined for the type App&#10;" type="java.lang.Error"><![CDATA[java.lang.Error: 
+Unresolved compilation problem: 
+	The method calculateSpearman(List<Double>, List<Double>) is undefined for the type App
+
+	at bmt.AppTest.testCalculateSpearman(AppTest.java:33)
+]]></error>
+  </testcase>
+  <testcase name="testCalculatePearson" classname="bmt.AppTest" time="0">
+    <error message="Unresolved compilation problem: &#10;	The method calculatePearson(List&lt;Double&gt;, List&lt;Double&gt;) is undefined for the type App&#10;" type="java.lang.Error"><![CDATA[java.lang.Error: 
+Unresolved compilation problem: 
+	The method calculatePearson(List<Double>, List<Double>) is undefined for the type App
+
+	at bmt.AppTest.testCalculatePearson(AppTest.java:24)
+]]></error>
+  </testcase>
+  <testcase name="testPredictProfit" classname="bmt.AppTest" time="0">
+    <error message="Unresolved compilation problem: &#10;	The method predictProfit(double, double[]) is undefined for the type App&#10;" type="java.lang.Error">java.lang.Error: 
+Unresolved compilation problem: 
+	The method predictProfit(double, double[]) is undefined for the type App
+
+	at bmt.AppTest.testPredictProfit(AppTest.java:54)
+</error>
+  </testcase>
   <testcase name="testCalculateMean" classname="bmt.AppTest" time="0"/>
-  <testcase name="testPredictImdbRating" classname="bmt.AppTest" time="0.001"/>
-  <testcase name="testPerformLinearRegression" classname="bmt.AppTest" time="0.018"/>
+  <testcase name="testPredictImdbRating" classname="bmt.AppTest" time="0">
+    <error message="Unresolved compilation problem: &#10;	The method predictImdbRating(double, double[]) is undefined for the type App&#10;" type="java.lang.Error">java.lang.Error: 
+Unresolved compilation problem: 
+	The method predictImdbRating(double, double[]) is undefined for the type App
+
+	at bmt.AppTest.testPredictImdbRating(AppTest.java:62)
+</error>
+  </testcase>
+  <testcase name="testPerformLinearRegression" classname="bmt.AppTest" time="0">
+    <error message="Unresolved compilation problem: &#10;	The method performLinearRegression(List&lt;Double&gt;, List&lt;Double&gt;) is undefined for the type App&#10;" type="java.lang.Error"><![CDATA[java.lang.Error: 
+Unresolved compilation problem: 
+	The method performLinearRegression(List<Double>, List<Double>) is undefined for the type App
+
+	at bmt.AppTest.testPerformLinearRegression(AppTest.java:44)
+]]></error>
+  </testcase>
 </testsuite>
