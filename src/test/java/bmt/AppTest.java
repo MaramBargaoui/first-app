@@ -2,53 +2,64 @@ package bmt;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.Arrays;
+
 import java.util.List;
+import java.util.ArrayList;
 
 public class AppTest {
 
+    // Test case for Descriptive Statistics - Mean
     @Test
     public void testCalculateMean() {
-        List<Double> data = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);
-        double expectedMean = 3.0;
-        assertEquals(expectedMean, App.calculateMean(data), 0.001);
+        List<Double> data = List.of(1.0, 2.0, 3.0, 4.0, 5.0);
+        double mean = App.calculateMean(data);
+        assertEquals(3.0, mean, 0.0001);  // We expect the mean to be 3.0
     }
 
+    // Test case for Pearson Correlation Coefficient
     @Test
     public void testCalculatePearson() {
-        List<Double> x = Arrays.asList(1.0, 2.0, 3.0, 4.0);
-        List<Double> y = Arrays.asList(2.0, 4.0, 6.0, 8.0);
-        double expectedPearson = 1.0;  // Perfect positive correlation
-        assertEquals(expectedPearson, App.calculatePearson(x, y), 0.001);
+        List<Double> x = List.of(1.0, 2.0, 3.0);
+        List<Double> y = List.of(2.0, 4.0, 6.0);
+        double correlation = App.calculatePearson(x, y);
+        assertEquals(1.0, correlation, 0.0001);  // Perfect positive correlation
     }
 
+    // Test case for Spearman Rank Correlation Coefficient
     @Test
     public void testCalculateSpearman() {
-        List<Double> x = Arrays.asList(1.0, 2.0, 3.0, 4.0);
-        List<Double> y = Arrays.asList(2.0, 4.0, 6.0, 8.0);
-        double expectedSpearman = 1.0;  // Perfect positive correlation
-        assertEquals(expectedSpearman, App.calculateSpearman(x, y), 0.001);
+        List<Double> x = List.of(1.0, 2.0, 3.0);
+        List<Double> y = List.of(2.0, 3.0, 1.0);
+        double correlation = App.calculateSpearman(x, y);
+        assertEquals(-0.5, correlation, 0.0001);  // Adjusted the expected correlation value to -0.5
     }
+    
 
+    // Test case for Linear Regression - Country Codes vs Profits
     @Test
     public void testPerformLinearRegression() {
-        List<Double> countryCodes = Arrays.asList(1.0, 2.0, 3.0, 4.0);
-        List<Double> profits = Arrays.asList(1000.0, 2000.0, 3000.0, 4000.0);
+        List<Double> countryCodes = List.of(1.0, 2.0, 3.0, 4.0, 5.0);
+        List<Double> profits = List.of(10.0, 20.0, 30.0, 40.0, 50.0);
+        
         double[] coefficients = App.performLinearRegression(countryCodes, profits);
-
-        // Check if intercept and slope are reasonable for a linear relationship
         assertNotNull(coefficients);
-        assertEquals(0.0, coefficients[0], 1000); // Rough check for intercept (expect it to be near 0)
-        assertEquals(1000.0, coefficients[1], 100); // Slope expected to be approximately 1000
+        assertEquals(0.0, coefficients[0], 0.0001);  // Intercept should be 0
+        assertEquals(10.0, coefficients[1], 0.0001); // Slope should be 10 (perfect linear relationship)
     }
 
+    // Test case for predicting profit based on country code using the regression model
     @Test
     public void testPredictProfit() {
-        double[] coefficients = {1000.0, 1000.0};  // intercept = 1000, slope = 1000
-        double countryCode = 5.0;
-        double predictedProfit = App.predictProfit(countryCode, coefficients);
+        double[] coefficients = {0.0, 10.0};  // Intercept = 0, Slope = 10
+        double predictedProfit = App.predictProfit(3.0, coefficients);
+        assertEquals(30.0, predictedProfit, 0.0001);  // Expect 30.0 as predicted profit
+    }
 
-        // Expected profit = 1000 + (1000 * 5) = 6000
-        assertEquals(6000.0, predictedProfit, 0.001);
+    // Test case for Predicting IMDb Rating based on votes
+    @Test
+    public void testPredictImdbRating() {
+        double[] coefficients = {5.0, 0.0002};  // Example coefficients
+        double predictedRating = App.predictImdbRating(10000.0, coefficients);
+        assertEquals(7.0, predictedRating, 0.0001);  // Example expected rating
     }
 }
