@@ -3,7 +3,7 @@
     xmlns="http://maven.apache.org/POM/4.0.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                        http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                        http://www.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -144,23 +144,30 @@
           <version>3.0.0</version>
         </plugin>
 
-        <!-- Exec Maven Plugin (run your main class) -->
+        <!-- 
+           Exec Maven Plugin (from org.codehaus.mojo group).
+           This version is known to be on Maven Central so it won't fail.
+         -->
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-exec-plugin</artifactId>
-          <version>3.1.1</version>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.1.0</version>
           <executions>
             <execution>
               <goals>
                 <goal>java</goal>
               </goals>
               <configuration>
-                <!-- Replace with your actual package & class name -->
+                <!-- 
+                  Change 'bmt.MyLinearRegressionExample' if you want a different main class.
+                  This is just an example.
+                -->
                 <mainClass>bmt.MyLinearRegressionExample</mainClass>
               </configuration>
             </execution>
           </executions>
         </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
