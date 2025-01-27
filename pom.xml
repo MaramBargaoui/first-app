@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -13,8 +15,9 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source> <!-- Update to 11 or higher if needed -->
-    <maven.compiler.target>1.8</maven.compiler.target> <!-- Update to 11 or higher if needed -->
+    <!-- Set Java source/target here if you want to use a higher version -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <repositories>
@@ -43,39 +46,63 @@
     <dependency>
       <groupId>org.jfree</groupId>
       <artifactId>jfreechart</artifactId>
-      <version>1.0.19</version> <!-- Use the version of JFreeChart you downloaded -->
+      <version>1.0.19</version> 
     </dependency>
 
     <!-- JUnit 5 Dependencies -->
     <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.8.2</version>
-        <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.8.2</version>
-        <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Apache Spark Dependencies -->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.12</artifactId>
+      <version>3.5.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.12</artifactId>
+      <version>3.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-mllib_2.12</artifactId>
+      <version>3.1.1</version>
     </dependency>
   </dependencies>
 
   <build>
     <pluginManagement>
       <plugins>
+        <!-- Clean Plugin -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
+
+        <!-- Resources Plugin -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
+
+        <!-- Compiler Plugin -->
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
+
+        <!-- Surefire (Unit Testing) Plugin -->
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
@@ -86,28 +113,38 @@
             </dependenciesToScan>
           </configuration>
         </plugin>
+
+        <!-- Jar Plugin -->
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
+
+        <!-- Install Plugin -->
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
         </plugin>
+
+        <!-- Deploy Plugin -->
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+
+        <!-- Site Plugin -->
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7.1</version>
         </plugin>
+
+        <!-- Project Info Reports Plugin -->
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
 
-        <!-- Add the exec-maven-plugin to run the main class -->
+        <!-- Exec Maven Plugin to run your main class -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-exec-plugin</artifactId>
@@ -118,8 +155,9 @@
                 <goal>java</goal>
               </goals>
               <configuration>
-                <!-- Update this to point to the Correlation class -->
-                <mainClass>Correlation</mainClass>
+                <!-- This should point to your main class -->
+                <!-- For example: bmt.MyLogisticRegressionExample -->
+                <mainClass>bmt.MainApplication</mainClass>
               </configuration>
             </execution>
           </executions>
