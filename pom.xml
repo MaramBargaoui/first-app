@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -77,18 +76,16 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
-      <plugin>
-  <artifactId>maven-surefire-plugin</artifactId>
-  <version>2.22.1</version>
-  <configuration>
-    <dependenciesToScan>
-      <dependency>org.junit.jupiter:junit-jupiter-api</dependency>
-      <dependency>org.junit.jupiter:junit-jupiter-engine</dependency>
-    </dependenciesToScan>
-  </configuration>
-</plugin>
-
-
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+          <configuration>
+            <dependenciesToScan>
+              <dependency>org.junit.jupiter:junit-jupiter-api</dependency>
+              <dependency>org.junit.jupiter:junit-jupiter-engine</dependency>
+            </dependenciesToScan>
+          </configuration>
+        </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
@@ -114,14 +111,15 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-exec-plugin</artifactId>
-          <version>3.1.1</version> <!-- Updated to latest version -->
+          <version>3.1.1</version>
           <executions>
             <execution>
               <goals>
                 <goal>java</goal>
               </goals>
               <configuration>
-                <mainClass>bmt.MainApplication</mainClass>
+                <!-- Update this to point to the Correlation class -->
+                <mainClass>Correlation</mainClass>
               </configuration>
             </execution>
           </executions>

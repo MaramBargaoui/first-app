@@ -1,5 +1,7 @@
 package bmt;
 
+import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,13 +12,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
-// Abstract Class for Statistics (Abstraction)
 abstract class Statistics {
     public abstract double calculate(List<Double> x, List<Double> y);
 }
 
-// Encapsulation: Create a class to hold data related to countries
 class CountryData {
     private String country;
     private double meanProfit;
@@ -30,37 +31,20 @@ class CountryData {
         this.meanBudget = meanBudget;
     }
 
-    // Getters and Setters (Encapsulation)
     public String getCountry() {
         return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public double getMeanProfit() {
         return meanProfit;
     }
 
-    public void setMeanProfit(double meanProfit) {
-        this.meanProfit = meanProfit;
-    }
-
     public double getMeanRevenue() {
         return meanRevenue;
     }
 
-    public void setMeanRevenue(double meanRevenue) {
-        this.meanRevenue = meanRevenue;
-    }
-
     public double getMeanBudget() {
         return meanBudget;
-    }
-
-    public void setMeanBudget(double meanBudget) {
-        this.meanBudget = meanBudget;
     }
 
     public void displayCountryData() {
@@ -68,7 +52,6 @@ class CountryData {
     }
 }
 
-// Concrete class for Pearson Correlation (Polymorphism, Inheritance, Abstraction)
 class PearsonCorrelation extends Statistics {
     @Override
     public double calculate(List<Double> x, List<Double> y) {
@@ -98,7 +81,6 @@ class PearsonCorrelation extends Statistics {
     }
 }
 
-// Concrete class for Spearman Correlation (Polymorphism, Inheritance, Abstraction)
 class SpearmanCorrelation extends Statistics {
     @Override
     public double calculate(List<Double> x, List<Double> y) {
@@ -120,7 +102,6 @@ class SpearmanCorrelation extends Statistics {
         return 1 - (6 * rankSum) / (n * (Math.pow(n, 2) - 1));
     }
 
-    // Helper method to calculate the ranks of a list of values
     private List<Integer> rank(List<Double> data) {
         List<Integer> indices = new ArrayList<>();
         for (int i = 0; i < data.size(); i++) {
@@ -139,24 +120,22 @@ class SpearmanCorrelation extends Statistics {
 
 public class App {
 
-    // Method for linear regression on country codes and profits
-    public double[] performLinearRegression(List<Double> countryCodes, List<Double> profits) {
-        int n = countryCodes.size();
+    public double[] performLinearRegression(List<Double> xValues, List<Double> yValues) {
+        int n = xValues.size();
         double[][] xData = new double[n][1];
         double[] yData = new double[n];
 
         for (int i = 0; i < n; i++) {
-            xData[i][0] = countryCodes.get(i);
-            yData[i] = profits.get(i);
+            xData[i][0] = xValues.get(i);
+            yData[i] = yValues.get(i);
         }
 
-        org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression regression = new org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression();
+        OLSMultipleLinearRegression regression = new OLSMultipleLinearRegression();
         regression.newSampleData(yData, xData);
 
         return regression.estimateRegressionParameters();
     }
 
-    // Non-static calculateMean method
     public double calculateMean(List<Double> data) {
         double sum = 0.0;
         for (double value : data) {
@@ -166,133 +145,80 @@ public class App {
     }
 
     public static void main(String[] args) {
-        // Setup your file paths here (same as in the code)
-        String revenuesFilePath = "src/main/java/bmt/movies_revenues.csv";
-        String libraryFilePath = "src/main/java/bmt/movies_library.csv";
-        String imdbRatingsFilePath = "src/main/java/bmt/imdb_ratings.csv";  // New CSV file
+        App app = new App();  // Create an instance of the App class to call non-static methods
 
-        Map<String, Double> budgetData = new HashMap<>();
-        Map<String, Double> revenueData = new HashMap<>();
-        Map<String, Double> profitData = new HashMap<>();
-        Map<String, String> countryData = new HashMap<>();
-        Map<String, Double> imdbRatingsData = new HashMap<>();  // To store IMDb Ratings
+        // Example data
+        List<String> countries = List.of("US", "GB", "IN", "JP", "TH", "DE", "FR", "IT", "ES", "CA");
+        List<Double> profitsList = List.of(5000000.0, 3000000.0, 1000000.0, 2000000.0, 1500000.0, 1800000.0, 1200000.0, 2500000.0, 1600000.0, 4000000.0);
+        List<Double> revenuesList = List.of(6000000.0, 3500000.0, 1200000.0, 2200000.0, 1700000.0, 1900000.0, 1300000.0, 2700000.0, 1800000.0, 4200000.0);
+        List<Double> budgetsList = List.of(5500000.0, 3200000.0, 1100000.0, 2100000.0, 1600000.0, 2000000.0, 1300000.0, 2600000.0, 1700000.0, 4300000.0);
+        List<Double> votesList = List.of(10000.0, 20000.0, 5000.0, 7000.0, 8000.0, 15000.0, 12000.0, 17000.0, 16000.0, 13000.0);
+        List<Double> imdbRatingsList = List.of(7.5, 6.8, 5.9, 6.0, 6.5, 7.0, 6.8, 7.2, 7.3, 6.9);
 
-        // Read revenues data (same as your previous code)
-        try (BufferedReader br = new BufferedReader(new FileReader(revenuesFilePath))) {
-            String line;
-            boolean isFirstLine = true;
-            while ((line = br.readLine()) != null) {
-                if (isFirstLine) { isFirstLine = false; continue; }
-                String[] values = line.split(",");
-                try {
-                    String imdbId = values[0];
-                    double budget = Double.parseDouble(values[1]);
-                    double revenue = Double.parseDouble(values[2]);
-                    double profit = Double.parseDouble(values[3]);
-
-                    budgetData.put(imdbId, budget);
-                    revenueData.put(imdbId, revenue);
-                    profitData.put(imdbId, profit);
-                } catch (NumberFormatException e) {
-                    continue;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading the revenues file: " + e.getMessage());
-        }
-
-        // Read library data (same as your previous code)
-        try (BufferedReader br = new BufferedReader(new FileReader(libraryFilePath))) {
-            String line;
-            boolean isFirstLine = true;
-            while ((line = br.readLine()) != null) {
-                if (isFirstLine) { isFirstLine = false; continue; }
-                String[] values = line.split(",");
-                String imdbId = values[0];
-                String productionCountries = values[5].replaceAll("[\\[\\]'\"]", "").trim();
-
-                if (productionCountries.matches(".*\\b(US|GB|AU|IN|JP|TH|EG|LB|CA|AR|DK)\\b.*")) {
-                    countryData.put(imdbId, productionCountries);
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading the library file: " + e.getMessage());
-        }
-
-        // Read IMDb ratings data (Newly added CSV file)
-        try (BufferedReader br = new BufferedReader(new FileReader(imdbRatingsFilePath))) {
-            String line;
-            boolean isFirstLine = true;
-            while ((line = br.readLine()) != null) {
-                if (isFirstLine) { isFirstLine = false; continue; }
-                String[] values = line.split(",");
-                String imdbId = values[0];
-                double imdbRating = Double.parseDouble(values[1]);
-
-                imdbRatingsData.put(imdbId, imdbRating);
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading the IMDb ratings file: " + e.getMessage());
-        }
-
-        Set<String> targetCountries = new HashSet<>();
-        Collections.addAll(targetCountries, "US", "GB", "AU", "IN", "JP", "TH", "EG", "LB", "CA", "AR", "DK");
-
-        // Calculate and print Descriptive Statistics
+        // Display Descriptive Statistics
         System.out.println("Descriptive Statistics for Countries:");
-        Map<String, List<Double>> countryProfits = new HashMap<>();
-        Map<String, List<Double>> countryRevenues = new HashMap<>();
-        Map<String, List<Double>> countryBudgets = new HashMap<>();
-        for (Map.Entry<String, Double> entry : profitData.entrySet()) {
-            String imdbId = entry.getKey();
-            double profit = entry.getValue();
-            double revenue = revenueData.getOrDefault(imdbId, 0.0);
-            double budget = budgetData.getOrDefault(imdbId, 0.0);
-
-            if (countryData.containsKey(imdbId)) {
-                String[] countries = countryData.get(imdbId).split(";");
-                for (String country : countries) {
-                    if (targetCountries.contains(country)) {
-                        countryProfits.putIfAbsent(country, new ArrayList<>());
-                        countryRevenues.putIfAbsent(country, new ArrayList<>());
-                        countryBudgets.putIfAbsent(country, new ArrayList<>());
-                        countryProfits.get(country).add(profit);
-                        countryRevenues.get(country).add(revenue);
-                        countryBudgets.get(country).add(budget);
-                    }
-                }
-            }
+        for (int i = 0; i < countries.size(); i++) {
+            System.out.println("Country: " + countries.get(i) + ", Mean Profit: " + profitsList.get(i) + ", Mean Revenue: " + revenuesList.get(i) + ", Mean Budget: " + budgetsList.get(i));
         }
 
-        // Create and Display Encapsulated Country Data Objects
-        App app = new App();
-        for (String country : targetCountries) {
-            List<Double> profitsListCountry = countryProfits.getOrDefault(country, new ArrayList<>());
-            List<Double> revenuesListCountry = countryRevenues.getOrDefault(country, new ArrayList<>());
-            List<Double> budgetsListCountry = countryBudgets.getOrDefault(country, new ArrayList<>());
-
-            double meanProfit = app.calculateMean(profitsListCountry); // Calculate mean profit
-            double meanRevenue = app.calculateMean(revenuesListCountry); // Calculate mean revenue
-            double meanBudget = app.calculateMean(budgetsListCountry); // Calculate mean budget
-
-            // Encapsulate country data and display
-            CountryData countryDataObj = new CountryData(country, meanProfit, meanRevenue, meanBudget);
-            countryDataObj.displayCountryData();
-        }
-
-        // Perform Pearson and Spearman correlation
+        // Calculate and print Pearson and Spearman correlations
         PearsonCorrelation pearsonCalculator = new PearsonCorrelation();
         SpearmanCorrelation spearmanCalculator = new SpearmanCorrelation();
 
-        List<Double> ratings = List.of(3.5, 4.0, 4.5, 5.0, 3.0);
-        List<Double> revenue = List.of(1000.0, 1200.0, 1300.0, 1500.0, 900.0);
-
-        double pearson = pearsonCalculator.calculate(ratings, revenue);
-        double spearman = spearmanCalculator.calculate(ratings, revenue);
+        double pearson = pearsonCalculator.calculate(imdbRatingsList, revenuesList);
+        double spearman = spearmanCalculator.calculate(imdbRatingsList, revenuesList);
 
         System.out.println("\nPearson Correlation (Ratings & Revenue): " + pearson);
         System.out.println("Spearman Correlation (Ratings & Revenue): " + spearman);
 
-        // Perform linear regression and make predictions (similar to before)
+        // Perform linear regression and make predictions
+        double[] profitCoefficients = app.performLinearRegression(countries.stream().map(country -> (double) country.hashCode()).collect(Collectors.toList()), profitsList);
+        System.out.println("\nRegression Coefficients for Country Codes vs Profits:");
+        System.out.println("Intercept: " + profitCoefficients[0]);
+        System.out.println("Slope: " + profitCoefficients[1]);
+
+        double[] revenueCoefficients = app.performLinearRegression(budgetsList, revenuesList);
+        System.out.println("\nRegression Coefficients for Budgets vs Revenues:");
+        System.out.println("Intercept: " + revenueCoefficients[0]);
+        System.out.println("Slope: " + revenueCoefficients[1]);
+
+        double[] imdbRatingCoefficients = app.performLinearRegression(votesList, imdbRatingsList);
+        System.out.println("\nRegression Coefficients for Votes vs IMDb Ratings:");
+        System.out.println("Intercept: " + imdbRatingCoefficients[0]);
+        System.out.println("Slope: " + imdbRatingCoefficients[1]);
+
+        // Predictions with rounded values for consistency
+        System.out.println("\nPrediction of Profit Based on Production Country:");
+        for (int i = 0; i < countries.size(); i++) {
+            double countryCode = (double) countries.get(i).hashCode();
+            double predictedProfit = predictProfit(countryCode, profitCoefficients);
+            System.out.println("Country: " + countries.get(i) + ", Predicted Profit: " + String.format("%.2f", predictedProfit));
+        }
+
+        System.out.println("\nPrediction of Revenue Based on Budget:");
+        for (int i = 0; i < countries.size(); i++) {
+            double budget = budgetsList.get(i);
+            double predictedRevenue = predictRevenue(budget, revenueCoefficients);
+            System.out.println("Country: " + countries.get(i) + ", Predicted Revenue: " + String.format("%.2f", predictedRevenue));
+        }
+
+        System.out.println("\nPrediction of IMDb Ratings Based on Votes:");
+        for (int i = 0; i < countries.size(); i++) {
+            double voteCount = votesList.get(i);
+            double predictedImdbRating = predictImdbRating(voteCount, imdbRatingCoefficients);
+            System.out.println("Votes: " + voteCount + ", Predicted IMDb Rating: " + String.format("%.2f", predictedImdbRating));
+        }
+    }
+
+    public static double predictProfit(double countryCode, double[] coefficients) {
+        return coefficients[0] + coefficients[1] * countryCode;
+    }
+
+    public static double predictRevenue(double budget, double[] coefficients) {
+        return coefficients[0] + coefficients[1] * budget;
+    }
+
+    public static double predictImdbRating(double voteCount, double[] coefficients) {
+        return coefficients[0] + coefficients[1] * voteCount;
     }
 }

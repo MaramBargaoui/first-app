@@ -1,4 +1,8 @@
-bmt\App.class
+bmt\SpearmanCorrelation.class
 bmt\RegressionAnalyzer.class
 bmt\DescriptiveStatistics.class
+bmt\App.class
+bmt\CountryData.class
+bmt\Statistics.class
+bmt\PearsonCorrelation.class
 bmt\CSVToSQLite.class
