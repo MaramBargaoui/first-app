@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="bmt.DescriptiveStatisticsTest" time="0.01" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="bmt.AppTest" time="0.06" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,10 +58,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testGenerateHistogramWithEmptyData" classname="bmt.DescriptiveStatisticsTest" time="0"/>
-  <testcase name="testCalculateMedian" classname="bmt.DescriptiveStatisticsTest" time="0"/>
-  <testcase name="testGenerateHistogramWithData" classname="bmt.DescriptiveStatisticsTest" time="0.009"/>
-  <testcase name="testCalculateMean" classname="bmt.DescriptiveStatisticsTest" time="0"/>
-  <testcase name="testCalculateMode" classname="bmt.DescriptiveStatisticsTest" time="0"/>
-  <testcase name="testCalculateStandardDeviation" classname="bmt.DescriptiveStatisticsTest" time="0"/>
+  <testcase name="testCalculateSpearman" classname="bmt.AppTest" time="0.02"/>
+  <testcase name="testCalculatePearson" classname="bmt.AppTest" time="0"/>
+  <testcase name="testPredictProfit" classname="bmt.AppTest" time="0"/>
+  <testcase name="testCalculateMean" classname="bmt.AppTest" time="0"/>
+  <testcase name="testPerformLinearRegression" classname="bmt.AppTest" time="0.038"/>
 </testsuite>
