@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project 
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                        http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +16,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Set Java source/target here if you want to use a higher version -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -28,28 +28,28 @@
   </repositories>
 
   <dependencies>
-    <!-- SQLite JDBC Dependency -->
+    <!-- SQLite JDBC -->
     <dependency>
       <groupId>org.xerial</groupId>
       <artifactId>sqlite-jdbc</artifactId>
       <version>3.48.0.0</version>
     </dependency>
 
-    <!-- Apache Commons Math Dependency for DescriptiveStatistics and Regression -->
+    <!-- Apache Commons Math -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-math3</artifactId>
       <version>3.6.1</version>
     </dependency>
 
-    <!-- JFreeChart Dependency for Visualization -->
+    <!-- JFreeChart -->
     <dependency>
       <groupId>org.jfree</groupId>
       <artifactId>jfreechart</artifactId>
-      <version>1.0.19</version> 
+      <version>1.0.19</version>
     </dependency>
 
-    <!-- JUnit 5 Dependencies -->
+    <!-- JUnit 5 (Test Scope) -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -63,7 +63,7 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Apache Spark Dependencies -->
+    <!-- Spark (all set to 3.5.4) -->
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.12</artifactId>
@@ -72,12 +72,12 @@
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_2.12</artifactId>
-      <version>3.1.1</version>
+      <version>3.5.4</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-mllib_2.12</artifactId>
-      <version>3.1.1</version>
+      <version>3.5.4</version>
     </dependency>
   </dependencies>
 
@@ -144,7 +144,7 @@
           <version>3.0.0</version>
         </plugin>
 
-        <!-- Exec Maven Plugin to run your main class -->
+        <!-- Exec Maven Plugin (run your main class) -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-exec-plugin</artifactId>
@@ -155,9 +155,8 @@
                 <goal>java</goal>
               </goals>
               <configuration>
-                <!-- This should point to your main class -->
-                <!-- For example: bmt.MyLogisticRegressionExample -->
-                <mainClass>bmt.MainApplication</mainClass>
+                <!-- Replace with your actual package & class name -->
+                <mainClass>bmt.MyLinearRegressionExample</mainClass>
               </configuration>
             </execution>
           </executions>
@@ -165,5 +164,4 @@
       </plugins>
     </pluginManagement>
   </build>
-
 </project>
