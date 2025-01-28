@@ -1,0 +1,6 @@
+# robots.txt for Movies Analysis
+User-agent: *
+Disallow: /api/
+Allow: /
+
+
