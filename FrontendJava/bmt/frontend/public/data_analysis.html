@@ -35,6 +35,7 @@
       color: #333;
       margin-bottom: 20px;
       font-size: 2.5rem;
+      font-weight: bold;
     }
 
     /* Styling for the analysis data */
@@ -49,6 +50,11 @@
       font-size: 1rem;
       line-height: 1.5;
       color: #555;
+    }
+
+    pre.analysis strong {
+      color: #333;
+      font-weight: bold;
     }
 
     /* Styling for the button container */
@@ -68,6 +74,7 @@
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
     /* Hover effect for the buttons */
@@ -79,12 +86,12 @@
 <body>
   <div class="content-container">
     <!-- Title of the page -->
-    <h1>Movies Analysis</h1>
+    <h1>Data Analysis</h1>
 
     <!-- Analysis content -->
     <pre class="analysis">
 
-Descriptive Statistics for Countries: 
+<strong>Descriptive Statistics for Countries:</strong>
 Country: AR, Mean Profit: 3.907661471428572E7, Mean Revenue: 6.807957664285715E7, Mean Budget: 2.900296192857143E7 
 Country: EG, Mean Profit: 2.73924025E7, Mean Revenue: 3.9134069166666664E7, Mean Budget: 1.1741666666666666E7 
 Country: AU, Mean Profit: 4712683.6, Mean Revenue: 1.8251972133333333E7, Mean Budget: 1.3539288533333333E7 
@@ -97,22 +104,22 @@ Country: GB, Mean Profit: 6.194756913636363E7, Mean Revenue: 9.30305033030303E7,
 Country: US, Mean Profit: 5.962822057824428E7, Mean Revenue: 9.042432924427481E7, Mean Budget: 3.0796108666030534E7 
 Country: CA, Mean Profit: 7.657331260465117E7, Mean Revenue: 1.0610757746511628E8, Mean Budget: 2.9534264860465117E7 
 
-Pearson Correlation (Ratings & Revenue): 0.9933992677987828 
-Spearman Correlation (Ratings & Revenue): 1.0 
+<strong>Pearson Correlation (Ratings & Revenue):</strong> 0.9933992677987828 
+<strong>Spearman Correlation (Ratings & Revenue):</strong> 1.0 
 
-Regression Coefficients for Country Codes vs Profits: 
+<strong>Regression Coefficients for Country Codes vs Profits:</strong>
 Intercept: -7.7674199139453E7 
 Slope: 45609.51388695585 
 
-Regression Coefficients for Budgets vs Revenues: 
+<strong>Regression Coefficients for Budgets vs Revenues:</strong>
 Intercept: 1.0294433948165989E7 
 Slope: 1.6679020379994236 
 
-Regression Coefficients for Votes vs IMDb Ratings: 
+<strong>Regression Coefficients for Votes vs IMDb Ratings:</strong>
 Intercept: 5.913455069678041 
 Slope: 7.126381547333012E-5 
 
-Prediction of Profit Based on Production Country: 
+<strong>Prediction of Profit Based on Production Country:</strong>
 Country: AR, Predicted Profit: 17968951.48 
 Country: EG, Predicted Profit: 23122826.55 
 Country: AU, Predicted Profit: 18105780.02 
@@ -125,7 +132,7 @@ Country: GB, Predicted Profit: 25722568.84
 Country: US, Predicted Profit: 46292459.61 
 Country: CA, Predicted Profit: 20021379.61 
 
-Prediction of Revenue Based on Budget: 
+<strong>Prediction of Revenue Based on Budget:</strong>
 Country: AR, Predicted Revenue: 26973454.33 
 Country: EG, Predicted Revenue: 14964559.65 
 Country: AU, Predicted Revenue: 14464189.04 
@@ -138,7 +145,7 @@ Country: GB, Predicted Revenue: 12442691.77
 Country: US, Predicted Revenue: 143726596.99 
 Country: CA, Predicted Revenue: 110368556.23 
 
-Prediction of IMDb Ratings Based on Votes: 
+<strong>Prediction of IMDb Ratings Based on Votes:</strong>
 Votes: 10000.0, Predicted IMDb Rating: 6.63 
 Votes: 20000.0, Predicted IMDb Rating: 7.34 
 Votes: 5000.0, Predicted IMDb Rating: 6.27 

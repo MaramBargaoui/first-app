@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Graphs and Charts</title>
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .navigate-button {
+      padding: 8px 16px; /* Smaller button size */
+      font-size: 14px; /* Smaller font size */
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .navigate-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <div class="content-container">
@@ -35,8 +58,10 @@
         <p>Time Series Analysis</p>
       </div>
     </div>
-    <button class="navigate-button" onclick="location.href='/descriptive_analysis.html'">Back to Descriptive Analysis</button>
-    <button class="navigate-button" onclick="location.href='/histograms.html'">Go to Histograms</button>
+    <div class="button-container">
+      <button class="navigate-button" onclick="location.href='/data_analysis.html'">Back to Data Analysis</button>
+      <button class="navigate-button" onclick="location.href='/histograms.html'">Go to Histograms</button>
+    </div>
   </div>
 
   <!-- Lightbox -->

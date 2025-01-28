@@ -447,4 +447,41 @@ h1 {
 .navigate-button:hover {
   background-color: #0056b3;
 }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9; /* Light background color */
+}
+
+.first-page-container {
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 4rem; /* Increase title size */
+  font-weight: bold; /* Make it bold */
+  margin-bottom: 2rem; /* Add space below the title */
+  color: #333; /* Dark text color */
+}
+
+.navigate-button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem; /* Increase button size */
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navigate-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
 
