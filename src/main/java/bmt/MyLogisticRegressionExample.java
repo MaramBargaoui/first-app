@@ -24,7 +24,9 @@ public class MyLogisticRegressionExample {
         Dataset<Row> data = spark.read()
                 .option("header", "true")
                 .option("inferSchema", "true")
-                .csv("path/to/your/movies_data.csv");
+                .csv("src/main/java/bmt/movies_data.csv");
+
+;
 
         // Print the schema to understand the data
         data.printSchema();
