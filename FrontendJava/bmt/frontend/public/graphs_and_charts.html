@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graphs and Charts</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="content-container">
+    <h1>Graphs and Charts</h1>
+    <div class="image-gallery">
+      <div class="image-item">
+        <img src="/Line Chart.png" alt="Line Chart" onclick="openLightbox(this)">
+        <p>Line Chart</p>
+      </div>
+      <div class="image-item">
+        <img src="/PieChart.png" alt="Pie Chart" onclick="openLightbox(this)">
+        <p>Pie Chart</p>
+      </div>
+      <div class="image-item">
+        <img src="/Regression.png" alt="Regression Chart" onclick="openLightbox(this)">
+        <p>Regression Chart</p>
+      </div>
+      <div class="image-item">
+        <img src="/Scatter plot.png" alt="Scatter Plot" onclick="openLightbox(this)">
+        <p>Scatter Plot</p>
+      </div>
+    </div>
+    <button class="navigate-button" onclick="location.href='/descriptive_analysis.html'">Back to Descriptive Analysis</button>
+    <button class="navigate-button" onclick="location.href='/'">Back to Home</button>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="close-lightbox" onclick="closeLightbox()">X</button>
+    <img id="lightbox-image" src="" alt="Enlarged Image">
+  </div>
+
+  <script>
+    function openLightbox(image) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightboxImage.src = image.src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

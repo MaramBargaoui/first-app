@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descriptive Analysis</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Styling for the entire page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Styling for the container */
+    .content-container {
+      width: 80%;
+      max-width: 1200px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Styling for the title */
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    /* Styling for the analysis data */
+    pre.analysis {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    /* Styling for the button container */
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    /* Styling for the buttons */
+    .navigate-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Hover effect for the buttons */
+    .navigate-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-container">
+    <!-- Title of the page -->
+    <h1>Descriptive Analysis</h1>
+
+    <!-- Analysis content -->
+    <pre class="analysis">
+
+Descriptive Statistics for Countries: 
+Country: AR, Mean Profit: 3.907661471428572E7, Mean Revenue: 6.807957664285715E7, Mean Budget: 2.900296192857143E7 
+Country: EG, Mean Profit: 2.73924025E7, Mean Revenue: 3.9134069166666664E7, Mean Budget: 1.1741666666666666E7 
+Country: AU, Mean Profit: 4712683.6, Mean Revenue: 1.8251972133333333E7, Mean Budget: 1.3539288533333333E7 
+Country: TH, Mean Profit: 7.403465371428572E7, Mean Revenue: 1.1160608228571428E8, Mean Budget: 3.7571428571428575E7 
+Country: IN, Mean Profit: 4.998994206666667E7, Mean Revenue: 8.28732196E7, Mean Budget: 3.2883277533333335E7 
+Country: JP, Mean Profit: 5.2631229972222224E7, Mean Revenue: 8.173158275E7, Mean Budget: 2.9100352777777776E7 
+Country: LB, Mean Profit: 8.992189177777778E7, Mean Revenue: 1.6219966955555555E8, Mean Budget: 7.227777777777778E7 
+Country: DK, Mean Profit: 9.01924174E7, Mean Revenue: 1.295924174E8, Mean Budget: 3.94E7 
+Country: GB, Mean Profit: 6.194756913636363E7, Mean Revenue: 9.30305033030303E7, Mean Budget: 3.1082934166666668E7 
+Country: US, Mean Profit: 5.962822057824428E7, Mean Revenue: 9.042432924427481E7, Mean Budget: 3.0796108666030534E7 
+Country: CA, Mean Profit: 7.657331260465117E7, Mean Revenue: 1.0610757746511628E8, Mean Budget: 2.9534264860465117E7 
+
+Pearson Correlation (Ratings & Revenue): 0.9933992677987828 
+Spearman Correlation (Ratings & Revenue): 1.0 
+
+Regression Coefficients for Country Codes vs Profits: 
+Intercept: -7.7674199139453E7 
+Slope: 45609.51388695585 
+
+Regression Coefficients for Budgets vs Revenues: 
+Intercept: 1.0294433948165989E7 
+Slope: 1.6679020379994236 
+
+Regression Coefficients for Votes vs IMDb Ratings: 
+Intercept: 5.913455069678041 
+Slope: 7.126381547333012E-5 
+
+Prediction of Profit Based on Production Country: 
+Country: AR, Predicted Profit: 17968951.48 
+Country: EG, Predicted Profit: 23122826.55 
+Country: AU, Predicted Profit: 18105780.02 
+Country: TH, Predicted Profit: 44376860.02 
+Country: IN, Predicted Profit: 29097672.87 
+Country: JP, Predicted Profit: 30602786.83 
+Country: LB, Predicted Profit: 32792043.49 
+Country: DK, Predicted Profit: 21891369.68 
+Country: GB, Predicted Profit: 25722568.84 
+Country: US, Predicted Profit: 46292459.61 
+Country: CA, Predicted Profit: 20021379.61 
+
+Prediction of Revenue Based on Budget: 
+Country: AR, Predicted Revenue: 26973454.33 
+Country: EG, Predicted Revenue: 14964559.65 
+Country: AU, Predicted Revenue: 14464189.04 
+Country: TH, Predicted Revenue: 77010515.47 
+Country: IN, Predicted Revenue: 63667299.16 
+Country: JP, Predicted Revenue: 41984572.67 
+Country: LB, Predicted Revenue: 63667299.16 
+Country: DK, Predicted Revenue: 35312964.52 
+Country: GB, Predicted Revenue: 12442691.77 
+Country: US, Predicted Revenue: 143726596.99 
+Country: CA, Predicted Revenue: 110368556.23 
+
+Prediction of IMDb Ratings Based on Votes: 
+Votes: 10000.0, Predicted IMDb Rating: 6.63 
+Votes: 20000.0, Predicted IMDb Rating: 7.34 
+Votes: 5000.0, Predicted IMDb Rating: 6.27 
+Votes: 7000.0, Predicted IMDb Rating: 6.41 
+Votes: 8000.0, Predicted IMDb Rating: 6.48 
+Votes: 15000.0, Predicted IMDb Rating: 6.98 
+Votes: 12000.0, Predicted IMDb Rating: 6.77 
+Votes: 17000.0, Predicted IMDb Rating: 7.12 
+Votes: 16000.0, Predicted IMDb Rating: 7.05 
+Votes: 13000.0, Predicted IMDb Rating: 6.84 
+    </pre>
+
+    <!-- Navigation buttons -->
+    <div class="button-container">
+      <button class="navigate-button" onclick="location.href='/graphs_and_charts.html'">Go to Graphs and Charts</button>
+      <button class="navigate-button" onclick="location.href='/'">Back to Home</button>
+    </div>
+  </div>
+</body>
+</html>

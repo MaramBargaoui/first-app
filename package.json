@@ -1,17 +1,19 @@
 {
   "name": "movie-analysis",
   "version": "1.0.0",
-  "description": "",
+  "description": "A movie analysis project using Node.js and Express.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaramBargaoui/first-app.git"
+    "url": "https://github.com/MaramBargaoui/first-app.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["movie-analysis", "nodejs", "express", "charts", "graphs"],
+  "author": "Maram Bargaoui",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MaramBargaoui/first-app/issues"
@@ -19,5 +21,8 @@
   "homepage": "https://github.com/MaramBargaoui/first-app#readme",
   "dependencies": {
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
