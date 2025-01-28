@@ -11,7 +11,7 @@ import java.util.Map; // Import for Map
 import java.util.HashMap; // Import for HashMap
 
 
-public class PieChartExample {
+public class PieChartGenres {
 
 
     public static void displayPieChart(String chartTitle, Map<String, Double> data) {
