@@ -17,3 +17,11 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+app.get('/histograms.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FrontendJava', 'bmt', 'frontend', 'public', 'histograms.html'));
+  });
+  
+  app.get('/correlation_and_regression.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FrontendJava', 'bmt', 'frontend', 'public', 'correlation_and_regression.html'));
+  });
+  

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histograms</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="content-container">
+    <h1>Histograms</h1>
+    <div class="image-gallery">
+      <div class="image-item">
+        <img src="/AR.png" alt="AR Histogram" onclick="openLightbox(this)">
+        <p>AR Histogram</p>
+      </div>
+      <div class="image-item">
+        <img src="/AU.png" alt="AU Histogram" onclick="openLightbox(this)">
+        <p>AU Histogram</p>
+      </div>
+      <div class="image-item">
+        <img src="/CA.png" alt="CA Histogram" onclick="openLightbox(this)">
+        <p>CA Histogram</p>
+      </div>
+      <!-- Add other histograms here -->
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="navigate-button" onclick="location.href='/graphs_and_charts.html'">Go to Graphs and Charts</button>
+    <button class="navigate-button" onclick="location.href='/correlation_and_regression.html'">Go to Correlation and Regression</button>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="close-lightbox" onclick="closeLightbox()">X</button>
+    <img id="lightbox-image" src="" alt="Enlarged Image">
+  </div>
+
+  <script>
+    function openLightbox(image) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightboxImage.src = image.src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
