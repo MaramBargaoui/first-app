@@ -1,7 +1,7 @@
 # Project Report
 
 ## 1. Project Description
-This project is a comprehensive data analysis management system using Java, designed to handle various data ingestion, exploration, and visualization tasks. The system follows a structured object-oriented programming (OOP) approach and incorporates data processing, machine learning, and reporting capabilities. The aim is to provide a user-friendly interface where users can import, clean, analyze, and visualize data effectively within a chosen domain application.
+This project is a comprehensive data analysis management system using Java, designed to handle various data ingestion, exploration, and visualization tasks. The system follows a structured object-oriented programming (OOP) approach, incorporating data processing, machine learning, and reporting capabilities. The aim is to provide a user-friendly interface where users can import, clean, analyze, and visualize data effectively within a chosen domain application.
 
 Additionally, this project includes a **Movie Analysis System**, which focuses on analyzing movie datasets, including IMDb ratings, revenues, and production details. Users can explore trends, correlations, and machine learning predictions related to movie performance and audience preferences.
 
@@ -50,10 +50,10 @@ Additionally, this project includes a **Movie Analysis System**, which focuses o
 ## 4. Technologies Used
 - **Programming Languages:** Java, Python, JavaScript, Scala, R, HTML.
 - **Big Data:** Apache Spark, Hadoop.
-- **Web Technologies:** Node.js, Spring Boot (for potential web expansion).
-- **Data Storage:** MySQL, PostgreSQL, MongoDB.
+- **Web Technologies:** Node.js.
+- - **Data Storage:** SQLite.
 - **Machine Learning Libraries:** Tribuo, MLlib.
-- **Visualization Tools:** JFreeChart, JFreeReport, Apache Spark visualization.
+- **Visualization Tools:** JFreeChart, Apache Spark visualization.
 
 ## 5. Object-Oriented Programming Concepts Used
 - **Encapsulation:** Data and methods are encapsulated within classes to maintain integrity.
@@ -86,7 +86,7 @@ Additionally, this project includes a **Movie Analysis System**, which focuses o
 - **Phase 3:** Development of data analysis and visualization features (3 weeks).
 
 ## 9. Conclusion
-This project successfully integrates Java, Python, and big data frameworks to develop a scalable, modular, and efficient data analysis management system. By leveraging object-oriented programming, machine learning, and visualization techniques, the system provides a comprehensive solution for data exploration and decision-making.
+This project integrates Java, Python, and big data frameworks to develop a scalable, modular, and efficient data analysis management system. By leveraging object-oriented programming, machine learning, and visualization techniques, the system provides a comprehensive solution for data exploration and decision-making.
 
 The **Movie Analysis System** adds further value by enabling detailed examination of movie datasets, revealing trends in audience preferences, revenue patterns, and key success factors in the entertainment industry.
 
